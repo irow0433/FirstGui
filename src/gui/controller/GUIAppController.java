@@ -1,5 +1,18 @@
 package gui.controller;
 
-public class GUIAppController {
+import gui.view.GUIFrame;
 
+public class GUIAppController 
+{
+	private GUIFrame appFrame;
+	
+	
+	public GUIAppController()
+	{
+		this.appFrame = new GUIFrame(this);
+	}
+	public void start()
+	{
+		
+	}
 }
