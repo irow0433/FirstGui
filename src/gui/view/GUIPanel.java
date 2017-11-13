@@ -33,6 +33,7 @@ public class GUIPanel extends JPanel
 	//need to call it "setupPanel();
 	private void setupPanel()
 	{
+		this.setBackground(Color.GREEN);
 		this.setLayout(baseLayout);
 		this.add(firstButton);
 	}
