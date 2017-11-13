@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.SpringLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //"extends" is the word that inherits things (java)
 public class GUIPanel extends JPanel
@@ -24,6 +26,8 @@ public class GUIPanel extends JPanel
 		baseLayout = new SpringLayout();
 		
 		setupPanel();
+		setupLayout();
+		setupListeners();
 	}
 	
 	/**
@@ -42,11 +46,32 @@ public class GUIPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 129, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 0, SpringLayout.WEST, this);
 	}
 	
+	/**
+	 * this helper method is used to link any GUi components to the associated listeners.
+	 */
 	private void setupListeners()
 	{
+		//FirstButton.addAcitonListener Attaches a Listener to the button
+		firstButton.addActionListener(new ActionListener()
+		{
+			//public void actionPerformed execute this code when the button is clicked
+			public void actionPerformed(ActionEvent click)
+			{
+				changeBackgroundColor();
+			}
+		});
+	}
+	
+	private void changeBackgroundColor()
+	{
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
 		
+		this.setBackground(new Color(red, green, blue));
 	}
 }
