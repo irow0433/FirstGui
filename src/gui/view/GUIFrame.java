@@ -8,12 +8,14 @@ import javax.swing.JFrame;
 public class GUIFrame extends JFrame
 {
 	private GUIAppController appController;
+	private GUIPanel firstPanel;
 	
 	public GUIFrame(GUIAppController appController)
 	{
 		//super calls the parent constructor
 		super();
 		this.appController  = appController;
+		this.firstPanel = new GUIPanel(appController);
 		
 		setupFrame();
 	}
@@ -21,8 +23,11 @@ public class GUIFrame extends JFrame
 	private void setupFrame()
 	{
 		//requires all that is below in setupFrame
+		//this is also what a basic frame looks like
+		this.setContentPane(firstPanel);
 		this.setTitle("The Window title");
 		this.setSize(500, 500);
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 }
